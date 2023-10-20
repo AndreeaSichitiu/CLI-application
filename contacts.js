@@ -59,9 +59,10 @@ function removeContact(contactId) {
       console.log(`Contact with id: ${contactId} does not exist!`);
       return;
     }
-    const [idcontact] = contacts.splice(contact, 1);
+    contacts.splice(contact, 1);
     console.log(`Contact with id: ${contactId} was deleted!`);
-
+    console.table(contacts);
+   
     fs.writeFile(contactsPath, JSON.stringify(contacts, null), (error) => {
       if (error) {
         console.err("Error on deleting contact!");
